@@ -19,10 +19,12 @@ jobs:
     - name: Download installers
       run: |
          curl -o docker_desktop_installer_mac_x84_64.dmg "https://desktop.docker.com/mac/main/amd64/Docker.dmg"
+         md5sum  docker_desktop_installer_mac_x84_64.dmg > docker_desktop_installer_mac_x84_64.dmg.md5.txt
 
     - name: Release
       uses: softprops/action-gh-release@v2
       with:
         files: |
           docker_desktop_installer_mac_x84_64.dmg
+          docker_desktop_installer_mac_x84_64.dmg.md5.txt
         tag_name: latest
